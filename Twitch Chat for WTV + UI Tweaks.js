@@ -5,7 +5,7 @@
 // @description  Twitch chat for w.tv + other UI tweaks
 // @match        https://w.tv/*
 // @match        https://www.w.tv/*
-// @run-at       document-start
+// @run-at       document-idle
 // @grant        GM_addStyle
 // @author       PlutoMonkey
 // @updateURL    https://github.com/kli885/Replace-WTV-chat-with-Twitch-Chat-UI-Tweaks/raw/refs/heads/main/Twitch%20Chat%20for%20WTV%20+%20UI%20Tweaks.js
