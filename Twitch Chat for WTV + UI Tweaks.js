@@ -2,12 +2,14 @@
 // @name         w.tv -> Twitch Chat
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  Inject Twitch chat on w.tv + other UI tweaks
+// @description  Twitch chat for w.tv + other UI tweaks
 // @match        https://w.tv/*
 // @match        https://www.w.tv/*
 // @run-at       document-start
 // @grant        GM_addStyle
 // @author       PlutoMonkey
+// @updateURL    https://github.com/kli885/Replace-WTV-chat-with-Twitch-Chat-UI-Tweaks/raw/refs/heads/main/Twitch%20Chat%20for%20WTV%20+%20UI%20Tweaks.js
+// @downloadURL  https://github.com/kli885/Replace-WTV-chat-with-Twitch-Chat-UI-Tweaks/raw/refs/heads/main/Twitch%20Chat%20for%20WTV%20+%20UI%20Tweaks.js
 // @license      MIT
 // ==/UserScript==
 
