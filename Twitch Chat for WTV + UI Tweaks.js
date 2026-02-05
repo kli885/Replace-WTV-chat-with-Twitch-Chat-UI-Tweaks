@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         w.tv -> Twitch Chat
 // @namespace    http://tampermonkey.net/
-// @version      1.0.1
+// @version      1.0.2
 // @description  Twitch chat for w.tv + other UI tweaks
 // @match        https://w.tv/*
 // @match        https://www.w.tv/*
@@ -263,8 +263,8 @@
         for (const child of container.children) {
             if (child instanceof HTMLElement && child.contains(video)) {
                 child.id = "tm-wtv-video";
-                child.parentElement?.id = "tm-wtv-video-outer";
-                child.children[0]?.children[0]?.id = "tm-wtv-video-inner";
+                child.parentElement.id = "tm-wtv-video-outer";
+                child.children[0].children[0].id = "tm-wtv-video-inner";
             }
         }
     }
