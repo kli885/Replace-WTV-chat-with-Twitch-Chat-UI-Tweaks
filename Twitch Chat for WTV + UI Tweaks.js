@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         w.tv -> Twitch Chat
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.0.1
 // @description  Twitch chat for w.tv + other UI tweaks
 // @match        https://w.tv/*
 // @match        https://www.w.tv/*
