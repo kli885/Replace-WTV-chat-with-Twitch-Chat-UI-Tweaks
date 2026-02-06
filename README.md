@@ -1,5 +1,6 @@
 # Replace WTV chat with Twitch Chat + UI Tweaks
 Replaces the built-in WTV chat with any chat from Twitch. Also includes UI Tweaks that make it more similar to Twitch. 
+<img width="1920" height="977" alt="2026-02-05 msedge_3504" src="https://github.com/user-attachments/assets/c1849965-a311-437e-b9fa-e105c40ffe35" />
 
 ## Installation
 
