@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         w.tv -> Twitch Chat
 // @namespace    http://tampermonkey.net/
-// @version      1.0.2
+// @version      1.0.3
 // @description  Twitch chat for w.tv + other UI tweaks
 // @match        https://w.tv/*
 // @match        https://www.w.tv/*
@@ -16,18 +16,20 @@
 (function () {
     "use strict";
 
+    // Twitch chat to embed
     const TWITCH_CHANNEL = "erobb221";
 
     const CONFIG = {
-        chatWidthPx: 340,
-        zIndex: 1,
-        addBodyPaddingRight: true,
-        tryDeleteBuiltInChat: true,
-        watchUrlChanges: true,
+        chatWidthPx: 340, //Width of the Twitch chat iframe in pixels. Default: 340
+        replaceBuiltInChat: true, // Whether to replace the built-in WTV chat with Twitch chat. Can be buggy if false. Default: true
 
+        // Likely unnecessary to change these:
         // How many times to retry initial injection while the page is settling.
         initialRetries: 8,
         initialRetryDelayMs: 600,
+        addBodyPaddingRight: true, 
+        watchUrlChanges: true, 
+        zIndex: 1,
     };
 
     const UI = {
@@ -192,7 +194,6 @@
     }
 
     function findBuiltInChatPaneAndDelete() {
-        if (!CONFIG.tryDeleteBuiltInChat) return;
         const chat = document.querySelector('div[data-teleport="stream-desktop-chat-target"]');
         const chatParent = chat ? chat.parentElement : null;
         if (chatParent) {
@@ -200,31 +201,6 @@
         }
     }
 
-    function neutralizeWtVChatSpacing() {
-        document.documentElement.style.setProperty("--chat-width", "0px", "important");
-        if (document.body) document.body.style.setProperty("--chat-width", "0px", "important");
-        document.documentElement.style.setProperty("--rounding-stream-preview-banner", "0px", "important");
-        if (document.body) document.body.style.setProperty("--rounding-stream-preview-banner", "0px", "important");
-
-        const MR_TOKEN = "mr-[var(--chat-width)]";
-        const W_TOKEN = "lg:w-[calc(100%-16px-var(--chat-width))]";
-
-        const nodes = Array.from(document.querySelectorAll('[class*="var(--chat-width)"]'));
-
-        for (const el of nodes) {
-            if (!(el instanceof HTMLElement)) continue;
-
-            if (el.classList.contains(MR_TOKEN)) {
-                el.classList.remove(MR_TOKEN);
-                el.style.setProperty("margin-right", "0px", "important");
-            }
-
-            if (el.classList.contains(W_TOKEN)) {
-                el.classList.remove(W_TOKEN);
-                el.style.setProperty("width", "100%", "important");
-            }
-        }
-    }
     function fixMainTagSpacing() {
         const main = document.querySelector("main");
         if (!main) return;
@@ -253,7 +229,6 @@
         const video = document.querySelector("#videoPlayer");
         if (!video) return null;
 
-        // Stable ancestor in your snippet
         const container =
             video.closest('div[class*="overflow-x-hidden"][class*="not-lg:fixed"]') ||
             video.closest('div[class*="overflow-x-hidden"]');
@@ -295,7 +270,6 @@
         const cs = getComputedStyle(list);
         const isOpen = cs.display !== "none" && cs.visibility !== "hidden" && cs.opacity !== "0";
 
-        // Restore when closed
         if (!isOpen) {
             if (list.hasAttribute(TM_PORTAL_ATTR) && tmMenuPortalState?.parent) {
                 list.removeAttribute(TM_PORTAL_ATTR);
@@ -316,7 +290,7 @@
             return;
         }
 
-        // Portal once
+
         if (!list.hasAttribute(TM_PORTAL_ATTR)) {
             tmMenuPortalState = {
                 parent: list.parentNode,
@@ -343,18 +317,21 @@
 
     function injectOrUpdate() {
         addStylesOnce();
-        ensureContainer();
+        if (CONFIG.replaceBuiltInChat) {
+            ensureContainer();
 
-        const iframe = document.getElementById(UI.iframeId);
-        const desired = buildTwitchChatSrc(TWITCH_CHANNEL);
+            const iframe = document.getElementById(UI.iframeId);
+            const desired = buildTwitchChatSrc(TWITCH_CHANNEL);
 
-        const current = iframe.getAttribute("src") || "";
-        if (current !== desired) iframe.setAttribute("src", desired);
+            const current = iframe.getAttribute("src") || "";
+            if (current !== desired) iframe.setAttribute("src", desired);
 
-        findBuiltInChatPaneAndDelete();
-        fixVideoPlayerSizing();
-        fixMainTagSpacing();
-        portalUserMenuList();
+            findBuiltInChatPaneAndDelete();
+            fixVideoPlayerSizing();
+            fixMainTagSpacing();
+            portalUserMenuList();
+        }
+
         hideScrollbarsNoGutter();
     }
 
