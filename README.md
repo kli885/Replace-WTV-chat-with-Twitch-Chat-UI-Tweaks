@@ -21,4 +21,4 @@ If you want to keep the wtv chat, change "tryDeleteBuiltInChat" to false. (I mad
 
 
 ### Disclaimer 
-Expect UI bugs. The code is very rough and by no means the best way to do what it does. I only use wtv for movies with Twitch chat and literally nothing else. I have not run into any major issues yet, but feel free to report bugs or feature requests.
+Only tested on 2560x1440 and 1920x1080. Expect UI bugs. The code is very rough and by no means the best way to do what it does. I only use wtv for movies with Twitch chat and literally nothing else. I have not run into any major issues yet, but feel free to report bugs or feature requests.
