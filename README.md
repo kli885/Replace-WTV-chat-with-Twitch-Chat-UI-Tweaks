@@ -15,9 +15,9 @@ You do not need a wtv account or a Twitch account.
 ## Usage
 Just change TWITCH_CHANNEL to whichever chat you want. Default is erobb221. 
 
-If you want to keep the wtv chat, change "tryDeleteBuiltInChat" to false. (I made UI changes based on having the Twitch chat instead so it may look funky)
+If you want to keep the wtv chat, change "replaceBuiltInChat" to false. (I made UI changes based on having the Twitch chat, so UI has not been tested with wtv chat)
 
-<img width="409" height="302" alt="image" src="https://github.com/user-attachments/assets/a7311344-ded8-4460-abee-9f17e63d4376" />
+<img width="513" height="337" alt="image" src="https://github.com/user-attachments/assets/5b2a9acf-9ec1-493b-83a5-9edb4e08d68c" />
 
 
 ### Disclaimer 
