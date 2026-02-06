@@ -1,7 +1,7 @@
 # Replace WTV chat with Twitch Chat + UI Tweaks
 Replaces the built-in WTV chat with any chat from Twitch. Also includes UI Tweaks that make it more similar to Twitch. 
 
-You do not need a wtv account or a Twitch account, and there is no way to view the wtv chat unless this script is disabled. 
+You do not need a wtv account or a Twitch account. 
 <img width="1920" height="977" alt="2026-02-05 msedge_3504" src="https://github.com/user-attachments/assets/c1849965-a311-437e-b9fa-e105c40ffe35" />
 
 ## Installation
@@ -15,7 +15,10 @@ You do not need a wtv account or a Twitch account, and there is no way to view t
 ## Usage
 Just change TWITCH_CHANNEL to whichever chat you want. Default is erobb221. 
 
-<img width="373" height="104" alt="image" src="https://github.com/user-attachments/assets/d5026a87-d5b7-40d9-8ad0-69c603634a09" />
+If you want to keep the wtv chat, change "tryDeleteBuiltInChat" to false. (I made UI changes based on having the Twitch chat instead so it may look funky)
+
+<img width="409" height="302" alt="image" src="https://github.com/user-attachments/assets/a7311344-ded8-4460-abee-9f17e63d4376" />
+
 
 ### Disclaimer 
 Expect UI bugs. The code is very rough and by no means the best way to do what it does. I only use wtv for movies with Twitch chat and literally nothing else. I have not run into any major issues yet, but feel free to report bugs or feature requests.
