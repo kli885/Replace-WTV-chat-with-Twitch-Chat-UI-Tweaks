@@ -8,7 +8,7 @@ Replaces the built-in WTV chat with any chat from Twitch. Also includes UI Tweak
 1. Install a userscript manager extension
    - [Tampermonkey](https://www.tampermonkey.net/) (Chrome, Firefox, Safari, Edge)
 2. Install the script
-   - [Twitch Chat for WTV + UI Tweaks.js](https://github.com/kli885/Replace-WTV-chat-with-Twitch-Chat-UI-Tweaks/raw/refs/heads/main/Twitch%20Chat%20for%20WTV%20+%20UI%20Tweaks.js)
+   - [Twitch Chat for WTV + UI Tweaks.js](https://github.com/kli885/Replace-WTV-chat-with-Twitch-Chat-UI-Tweaks/raw/refs/heads/main/Twitch%20Chat%20for%20WTV%20+%20UI%20Tweaks.user.js)
 
 ## Usage
 Just change TWITCH_CHANNEL to whichever chat you want. Default is erobb221. 
