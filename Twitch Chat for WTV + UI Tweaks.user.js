@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         w.tv -> Twitch Chat
 // @namespace    http://tampermonkey.net/
-// @version      1.0.4
+// @version      1.0.5
 // @description  Twitch chat for w.tv + other UI tweaks
 // @match        https://w.tv/*
 // @match        https://www.w.tv/*
@@ -22,6 +22,7 @@
     const CONFIG = {
         chatWidthPx: 340, //Width of the Twitch chat iframe in pixels. Default: 340
         replaceBuiltInChat: true, // Whether to replace the built-in WTV chat with Twitch chat. Can be buggy if false. Default: true
+        chatOnAllPages: true, // Show Twitch chat on all pages or just stream pages. replaceBuiltInChat needs to be true for this to work. Default: true
 
         // Likely unnecessary to change these:
         // How many times to retry initial injection while the page is settling.
@@ -193,7 +194,9 @@
         const chatParent = chat ? chat.parentElement : null;
         if (chatParent) {
             chatParent.remove();
+            return true;
         }
+        return
     }
 
     function fixMainTagSpacing() {
@@ -313,20 +316,20 @@
     function injectOrUpdate() {
         addStylesOnce();
         if (CONFIG.replaceBuiltInChat) {
-            ensureContainer();
+            if (findBuiltInChatPaneAndDelete() || CONFIG.chatOnAllPages) {
+                ensureContainer();
 
-            const iframe = document.getElementById(UI.iframeId);
-            const desired = buildTwitchChatSrc(TWITCH_CHANNEL);
+                const iframe = document.getElementById(UI.iframeId);
+                const desired = buildTwitchChatSrc(TWITCH_CHANNEL);
 
-            const current = iframe.getAttribute("src") || "";
-            if (current !== desired) iframe.setAttribute("src", desired);
+                const current = iframe.getAttribute("src") || "";
+                if (current !== desired) iframe.setAttribute("src", desired);
 
-            findBuiltInChatPaneAndDelete();
-            fixVideoPlayerSizing();
-            fixMainTagSpacing();
-            portalUserMenuList();
+                fixVideoPlayerSizing();
+                fixMainTagSpacing();
+                portalUserMenuList();
+            }
         }
-
         hideScrollbarsNoGutter();
     }
 
