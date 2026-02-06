@@ -8,8 +8,8 @@
 // @run-at       document-idle
 // @grant        GM_addStyle
 // @author       PlutoMonkey
-// @updateURL    https://github.com/kli885/Replace-WTV-chat-with-Twitch-Chat-UI-Tweaks/raw/refs/heads/main/Twitch%20Chat%20for%20WTV%20+%20UI%20Tweaks.js
-// @downloadURL  https://github.com/kli885/Replace-WTV-chat-with-Twitch-Chat-UI-Tweaks/raw/refs/heads/main/Twitch%20Chat%20for%20WTV%20+%20UI%20Tweaks.js
+// @updateURL    https://github.com/kli885/Replace-WTV-chat-with-Twitch-Chat-UI-Tweaks/raw/refs/heads/main/Twitch%20Chat%20for%20WTV%20+%20UI%20Tweaks.user.js
+// @downloadURL  https://github.com/kli885/Replace-WTV-chat-with-Twitch-Chat-UI-Tweaks/raw/refs/heads/main/Twitch%20Chat%20for%20WTV%20+%20UI%20Tweaks.user.js
 // @license      MIT
 // ==/UserScript==
 
