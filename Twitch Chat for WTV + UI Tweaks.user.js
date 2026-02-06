@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         w.tv -> Twitch Chat
 // @namespace    http://tampermonkey.net/
-// @version      1.0.3
+// @version      1.0.4
 // @description  Twitch chat for w.tv + other UI tweaks
 // @match        https://w.tv/*
 // @match        https://www.w.tv/*
@@ -106,11 +106,6 @@
 
             #tm-wtv-video.fixed {
                 width: calc(100% - ${CONFIG.chatWidthPx}px) !important;
-                top: 0px!important;
-            }
-
-            #tm-wtv-video.fixed  video{
-                aspect-ratio: 16/10!important;
             }
 
             [class~="mr-[var(--chat-width)]"] {
