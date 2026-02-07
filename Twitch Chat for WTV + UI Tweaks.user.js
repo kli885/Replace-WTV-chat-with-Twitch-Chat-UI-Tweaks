@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         w.tv -> Twitch Chat
 // @namespace    http://tampermonkey.net/
-// @version      1.0.5
+// @version      1.0.6
 // @description  Twitch chat for w.tv + other UI tweaks
 // @match        https://w.tv/*
 // @match        https://www.w.tv/*
@@ -162,7 +162,7 @@
         const parents = new Set([location.hostname, "w.tv", "www.w.tv"]);
         const qs = new URLSearchParams();
         for (const p of parents) qs.append("parent", p);
-        return `https://www.twitch.tv/embed/${encodeURIComponent(channel)}/chat?${qs.toString()}`;
+        return `https://www.twitch.tv/embed/${encodeURIComponent(channel)}/chat?darkpopout&${qs.toString()}`;
     }
 
     function ensureContainer() {
